@@ -1,5 +1,0 @@
-pysrt
-speech_recognition
-moviepy
-pydub
-langdetect
