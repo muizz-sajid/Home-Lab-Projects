@@ -1,5 +1,4 @@
 # Subtitle File Generator
-#### Video Demo:  https://youtu.be/0iPa9YVzB0U
 #### Description:
 This subtitle file generator extracts audio from a video file, processes the audio by splitting it into segments based on silence, detects and identifies the spoken language, and generates subtitles in .srt format. The code automates subtitle generation for any video in any language.
 
