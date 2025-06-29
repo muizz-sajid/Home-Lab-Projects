@@ -6,7 +6,7 @@
 
 {% block main %}
     <form action="/register" method="post">
-        <h3>Want to Register?</h3>
+        <h3 data-aos="fade-down">Want to Register?</h3>
         <div class="mb-3">
             <input class="form-control mx-auto w-auto" placeholder = 'Username' name='username' id='username' type='text' autofocus>
         </div>
@@ -17,7 +17,7 @@
             <input class="form-control mx-auto w-auto" placeholder = 'Confirmation' name='confirmation' id='confirmation' type='password'>
         </div>
         <div>
-            <button class="btn btn-primary" type='submit'>Submit</button>
+            <button data-aos="fade-up" data-aos-delay="300" class="btn btn-primary" type='submit'>Submit</button>
         </div>
 
     </form>

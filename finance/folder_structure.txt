@@ -1,0 +1,31 @@
+finance/
+|--app.py
+|--finance.db
+|--folder_structure.txt
+|--helpers.py
+|--requirements.txt
+
+|--__pycache__/
+    |--app.cpython-313.pyc
+    |--helpers.cpython-313.pyc
+
+|--flask_session/
+    |--2029240f6d1128be89ddc32729463129
+    |--a9cf62e65982defdd0409f5b417e4645
+
+|--static
+    |--favicon.ico
+    |--styles.css
+
+|--templates
+    |--apology.html
+    |--buy.html
+    |--cash_add.html
+    |--history.html
+    |--index.html
+    |--layout.html
+    |--login.html
+    |--quote.html
+    |--quoted.html
+    |--register.html
+    |--sell.html

@@ -5,14 +5,14 @@
 {% endblock %}
 
 {% block main %}
-    <h3>Please Insert the Stock Symbol Below to Check</h3>
-    <h3>Current Prices</h3>
+    <h3 data-aos="fade-down">Please Insert the Stock Symbol Below to Check</h3>
+    <h3 data-aos="fade-down">Current Prices</h3>
     <form action="/quote" method="post">
         <div class="mb-3">
             <input class="form-control mx-auto w-auto" placeholder = 'symbol' name='symbol' id='symbol' type='text' autofocus>
         </div>
         <div>
-            <button class="btn btn-primary" type='submit'>Submit</button>
+            <button data-aos="fade-up" data-aos-delay="300" class="btn btn-primary" type='submit'>Submit</button>
         </div>
 
     </form>

@@ -5,8 +5,8 @@
 {% endblock %}
 
 {% block main %}
-    <h3>My Portfolio</h3>
-    <table class="table_alignment">
+    <h3 data-aos="fade-down">My Portfolio</h3>
+    <table class="table_alignment" data-aos="fade-up" data-aos-delay="200">
         <thead>
             <tr>
                 <th>Name</th>
@@ -25,7 +25,7 @@
                 </tr>
             {% endfor %}
         </tbody>
-        <div>Cash: {{ cash }}</div>
-        <div>Grand Total: {{ grand_total }}</div>
+        <div data-aos="fade-up" data-aos-delay="300">Cash: {{ cash }}</div>
+        <div data-aos="fade-up" data-aos-delay="300">Grand Total: {{ grand_total }}</div>
     </table>
 {% endblock %}

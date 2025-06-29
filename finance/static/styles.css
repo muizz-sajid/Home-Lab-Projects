@@ -1,28 +1,197 @@
-/* Size for brand */
-nav .navbar-brand
-{
-    font-size: xx-large;
+/* Import Google Font (Poppins) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
+
+:root {
+    --color-bg:            #000000;
+    --color-surface:       #1a1a1a;
+    --color-muted-surface: #2e2e2e;
+    --color-primary:       #c0c0c0;
+    --color-accent:        #e0e0e0;
+    --color-text:          #ffffff;
+    --color-muted:         #bfbfbf;
+    --spacing-sm:          0.5rem;
+    --spacing-md:          1rem;
+    --spacing-lg:          1.5rem;
+    --radius:              0.5rem;
+    }
+
+
+/* Reset & Base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-/* Colors for brand */
-nav .navbar-brand .blue
-{
-    color: #537fbe;
-}
-nav .navbar-brand .red
-{
-    color: #ea433b;
-}
-nav .navbar-brand .yellow
-{
-    color: #f5b82e;
-}
-nav .navbar-brand .green
-{
-    color: #2e944b;
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-.table_alignment{
-    margin: auto;
-    width: 70%;
+/* Navbar Overrides */
+.navbar {
+    background-color: var(--color-surface) !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+.navbar-brand {
+    font-weight: 800;
+    font-size: 1.5rem;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.nav-link {
+   color: var(--color-text) !important;
+   font-weight: 600;
+   position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0; 
+    right: 0; 
+    bottom: -2px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-link:hover::after {
+    transform: scaleX(1);
+}
+
+    /* Container & Main */
+.container {
+    flex: 1;
+}
+
+main.container {
+    padding: var(--spacing-lg) 0;
+}
+
+    /* Tables */
+.table_alignment {
+    width: 100%;
+    margin: var(--spacing-md) auto;
+    border-collapse: collapse;
+}
+
+.table_alignment th,
+.table_alignment td {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-bottom: 1px solid var(--color-muted-surface);
+}
+
+.table_alignment thead th {
+    background-color: var(--color-surface);
+    font-weight: 600;
+}
+
+.table_alignment tbody tr:hover {
+    background-color: var(--color-muted-surface);
+}
+
+    /* Buttons */
+.btn-primary {
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent)) !important;
+    border: none !important;
+    font-weight: 600;
+    transition: transform 0.2s;
+    color: #1a1a1a;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+}
+
+    /* Forms */
+.form-control {
+    background-color: var(--color-surface) !important;
+    color: var(--color-text) !important;
+    border: none !important;
+    border-radius: var(--radius) !important;
+    width: auto !important;
+}
+
+.form-control::placeholder {
+    color: var(--color-muted) !important;
+}
+
+.form-select {
+    appearance: auto;
+    -webkit-appearance: auto;
+    -moz-appearance: auto;
+
+    /* remove Bootstrap’s custom arrow */
+    background-image: none !important;
+
+    background-color: var(--color-surface) !important;
+    color: var(--color-text) !important;
+    border: none !important;
+    border-radius: var(--radius) !important;
+    padding: 0.5rem 0.2rem !important;
+    width: auto !important;
+    max-width: 100% !important;
+    appearance: auto;
+    -webkit-appearance: auto;
+    box-shadow: none !important;
+}
+
+.mb-3 {
+    margin-bottom: var(--spacing-lg) !important;
+}
+
+    /* Alerts */
+.alert-primary {
+    background-color: var(--color-surface) !important;
+    color: var(--color-text) !important;
+    border: none;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+    /* Links */
+a {
+    text-decoration: none;
+    color: var(--color-text);
+    position: relative;
+}
+
+a::after {
+    content: '';
+    position: absolute;
+    left: 0; 
+    right: 0; 
+    bottom: -2px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+a:hover::after {
+    transform: scaleX(1);
+}
+
+    /* Headings */
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-md);
+}
+
+    /* Footer */
+footer {
+    padding: var(--spacing-md) 0;
+    background-color: var(--color-bg);
+}
+
+    /* Utility */
+.text-center {
+    text-align: center !important;
 }
