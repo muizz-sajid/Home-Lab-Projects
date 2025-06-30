@@ -2,7 +2,7 @@
 #### Description:
 This subtitle file generator extracts audio from a video file, processes the audio by splitting it into segments based on silence, detects and identifies the spoken language, and generates subtitles in .srt format. The code automates subtitle generation for any video in any language.
 
-#### Working of project.py:
+#### Overview of project.py:
 #### Main Function: main()
 This main() function serves as the entry point for the program. It takes the user's input for the video file path and validates the file path and file type to confirm if it is a video that exists at the correct address. If its not then the user is prompted again until a valid address is given. Calls subsequent functions(each of which are explained below) to process the video and then finally, generates and outputs the subtitle file name.
 

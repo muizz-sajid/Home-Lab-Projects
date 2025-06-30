@@ -78,32 +78,32 @@ Add screenshots or GIFs here if deploying publicly (e.g., login screen, dashboar
 
 Requests in this application flow through the following steps:
 
-1. **Client ↔ Browser:** The user interacts with the UI (forms, buttons, links) in their web browser.
+1. **Client ↔ Browser:** The user sends requests with the U.I in their browser.
 
-2. **Flask Routes:** Each user action sends an HTTP request to a specific Flask route in `app.py` (e.g., `/buy`, `/quote`, `/history`).
+2. **Flask Routes:** Every time a user clicks “buy”, ask for a quote, or check their history, Flask routes your request to the matching handler in app.py—like /buy, /quote, or /history.
 
-3. **Authentication & Validation:** Decorators (such as `@login_required`) and form validation ensure only authorized, well-formed requests proceed.
+3. **Authentication & Validation:** Decorators (for e.g. @login_required) and form validation gurantee only authorized requests proceed.
 
 4. **Business Logic & Helpers:** Core operations—stock lookups (`helpers.lookup`), USD formatting (`helpers.usd`), and database updates—are handled by helper functions and route handlers.
 
 5. **Database Operations:** Interactions with `finance.db` via SQL library record user credentials (`users` table) and transactions (`tracking` table).
 
-6. **Template Rendering:** Data is passed to Jinja2 templates in the `templates/` folder, combining dynamic content with the base layout (`layout.html`).
+6. **Template Rendering:** Information is sent to Jinja2 templates placed in the templates/ directory, mixing the base structure (layout.html) with dynamic content.
 
-7. **Client Response:** The rendered HTML, along with static assets (CSS, JavaScript, favicon), is sent back to the browser, updating the UI.
+7. **Client Response:** The browser receives a responsive HTML file with static assets including CSS, Javascript, and favicon.
 
 
 ## Security & Privacy
 
-Password Storage: User passwords are never stored in plain text; they are hashed using Werkzeug’s `generate_password_hash` and verified with `check_password_hash`.
+**Password Storage:** The method used for hashing is Werkzeug’s generate_password_hash and check_password_hash, whereby a user’s password will never be stored in the system unencrypted.
 
-Session Management: Server-side sessions (via `flask-session`) prevent client tampering by storing session data on the filesystem rather than in cookies.
+**Session Management:** Uses server-side sessions (with flask-session) to avoid client-side tampering by storing session data on the server instead of using cookies.
 
-Input Sanitization: All user inputs are validated and sanitized. Only integer share quantities and valid stock symbols are accepted, mitigating injection risks.
+**Input Sanitization:** All user input is checked and sanitized. Only valid stock symbols and share quantities in integer form are accepted to reduce injection attempts.
 
-HTTPS Recommendation: For production deployments, HTTPS should be enforced (e.g., via TLS certificates) to secure data in transit.
+**HTTPS Recommendation:** For production deployments, it is strongly recommended that HTTPS should be enabled with TLS certificates to protect data transiting the network.
 
-API Key Handling: No direct API keys are embedded in the code; external lookups are performed through the CS50 Finance proxy endpoint, reducing key exposure.
+**API Key Handling:** No direct API keys are present as lookups are done externally through the CS50 Finance proxy endpoint which limits key exposure.
 
 
 ## Database Schema
