@@ -1,6 +1,6 @@
-# Finance Web Application
+# Stock-Trading Web Application
 
-A dynamic web application built with Flask and SQLite that simulates a stock trading platform. This project is a customized version of the CS50x Finance problem set, extended with aesthetic enhancements (custom CSS and animations) and a new feature: the ability to add virtual cash to your account.
+This dynamic stock trading platform lets users register, log in, and simulate buying and selling stocks using real‑time market data from a public API. It tracks user portfolios, maintains a full transaction history, and includes an “add virtual cash” feature for experimentation. Even though this web app contains a css file to enhance its visual presentation, the main idea is to showcase the backend workings of how each webpage, that are all designed with different purposes, works with each other and how the data for each user (that registered) is stored seperately in the sql database along with their encrypted password.
 
 ---
 
@@ -9,19 +9,21 @@ A dynamic web application built with Flask and SQLite that simulates a stock tra
 1. [Overview](#overview)  
 2. [Features](#features)  
 3. [Project Structure](#project-structure)  
-4. [Screenshots](#screenshots)  
-5. [Setup & Installation](#setup--installation)  
-6. [Database Schema](#database-schema)  
-7. [Custom Styling](#custom-styling)  
-8. [Technologies Used](#technologies-used)  
-9. [Known Limitations](#known-limitations)    
-10. [Acknowledgments](#acknowledgments) 
+4. [Screenshots](#screenshots) 
+5. [Flow](#high-level-architecture-flow-of-requests) 
+6. [Security & Privacy](#security--privacy)
+7. [Database Schema](#database-schema)
+8. [Setup & Installation](#setup--installation)
+9. [Custom Styling](#custom-styling)  
+10. [Technologies Used](#technologies-used)  
+11. [Known Limitations](#known-limitations)    
+12. [Acknowledgments](#acknowledgments) 
 
 ---
 
 ## Overview
 
-This web app allows users to register, log in, and simulate the process of buying and selling stocks using real‑time data fetched from the CS50 Finance API wrapper. It keeps track of user portfolios and provides a complete transaction history. Additionally, users can **add virtual cash** to their account for experimentation.
+This web app is built with Flask and SQLite which simulates a full-featured stock trading platform. It’s been enhanced with custom CSS, smooth animations to make the experience of buying, selling, quoting, viewing, logging in and registring with a new account seamless.
 
 ---
 
@@ -71,6 +73,66 @@ finance/
 
 Add screenshots or GIFs here if deploying publicly (e.g., login screen, dashboard, buy/sell modals)
 
+
+## High-Level Architecture (Flow of Requests)
+
+Requests in this application flow through the following steps:
+
+1. **Client ↔ Browser:** The user interacts with the UI (forms, buttons, links) in their web browser.
+
+2. **Flask Routes:** Each user action sends an HTTP request to a specific Flask route in `app.py` (e.g., `/buy`, `/quote`, `/history`).
+
+3. **Authentication & Validation:** Decorators (such as `@login_required`) and form validation ensure only authorized, well-formed requests proceed.
+
+4. **Business Logic & Helpers:** Core operations—stock lookups (`helpers.lookup`), USD formatting (`helpers.usd`), and database updates—are handled by helper functions and route handlers.
+
+5. **Database Operations:** Interactions with `finance.db` via SQL library record user credentials (`users` table) and transactions (`tracking` table).
+
+6. **Template Rendering:** Data is passed to Jinja2 templates in the `templates/` folder, combining dynamic content with the base layout (`layout.html`).
+
+7. **Client Response:** The rendered HTML, along with static assets (CSS, JavaScript, favicon), is sent back to the browser, updating the UI.
+
+
+## Security & Privacy
+
+Password Storage: User passwords are never stored in plain text; they are hashed using Werkzeug’s `generate_password_hash` and verified with `check_password_hash`.
+
+Session Management: Server-side sessions (via `flask-session`) prevent client tampering by storing session data on the filesystem rather than in cookies.
+
+Input Sanitization: All user inputs are validated and sanitized. Only integer share quantities and valid stock symbols are accepted, mitigating injection risks.
+
+HTTPS Recommendation: For production deployments, HTTPS should be enforced (e.g., via TLS certificates) to secure data in transit.
+
+API Key Handling: No direct API keys are embedded in the code; external lookups are performed through the CS50 Finance proxy endpoint, reducing key exposure.
+
+
+## Database Schema
+
+The app uses a SQLite database (finance.db) with the following tables:
+
+### `users`
+
+| Column   | Type    | Description            |
+|:---------|:--------|:------------------------|
+| id       | INTEGER | Primary key             |
+| username | TEXT    | Unique login name       |
+| hash     | TEXT    | Hashed password         |
+| cash     | REAL    | User's current balance  |
+
+### `tracking`
+
+| Column         | Type    | Description                            |
+|:---------------|:--------|:----------------------------------------|
+| id             | INTEGER | Primary key                            |
+| user_id        | INTEGER | Foreign key to `users`                 |
+| symbol         | TEXT    | Stock ticker symbol                    |
+| shares         | INTEGER | Positive for buy, negative for sell    |
+| price          | REAL    | Price per share at time of transaction |
+| purchase_time  | TEXT    | Timestamp of transaction               |
+
+> All transactions (buys/sells) are recorded in the tracking table with timestamp.
+
+
 ## Setup & Installation
 
 ### Prerequisites
@@ -118,31 +180,6 @@ flask run
 
 Visit http://127.0.0.1:5000 in your browser.
 
-## Database Schema
-
-The app uses a SQLite database (finance.db) with the following tables:
-
-### `users`
-
-| Column   | Type    | Description            |
-|:---------|:--------|:------------------------|
-| id       | INTEGER | Primary key             |
-| username | TEXT    | Unique login name       |
-| hash     | TEXT    | Hashed password         |
-| cash     | REAL    | User's current balance  |
-
-### `tracking`
-
-| Column         | Type    | Description                            |
-|:---------------|:--------|:----------------------------------------|
-| id             | INTEGER | Primary key                            |
-| user_id        | INTEGER | Foreign key to `users`                 |
-| symbol         | TEXT    | Stock ticker symbol                    |
-| shares         | INTEGER | Positive for buy, negative for sell    |
-| price          | REAL    | Price per share at time of transaction |
-| purchase_time  | TEXT    | Timestamp of transaction               |
-
-> All transactions (buys/sells) are recorded in the tracking table with timestamp.
 
 ## Custom Styling
 
@@ -186,6 +223,7 @@ Animations powered by AOS (Animate On Scroll) using:
 - Werkzeug (security)
 
 - CS50 Finance API (lookup)
+
 
 ## Known Limitations
 
