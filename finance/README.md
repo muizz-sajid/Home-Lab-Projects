@@ -144,7 +144,7 @@ The app uses a SQLite database (finance.db) with the following tables:
 ### 1. Clone Repository
 
 ```bash
-git clone https://github.com/yourusername/finance
+git clone https://github.com/muizz-sajid/Home-Lab-Projects/tree/main/finance
 cd finance
 ```
 
