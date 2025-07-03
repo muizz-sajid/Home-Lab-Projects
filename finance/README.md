@@ -1,16 +1,18 @@
 # Stock-Trading Web Application
 
-This dynamic stock trading platform lets users register, log in, and simulate buying and selling stocks using real‑time market data from a public API. It tracks user portfolios, maintains a full transaction history, and includes an “add virtual cash” feature for experimentation. Even though this web app contains a css file to enhance its visual presentation, the main idea is to showcase the backend workings of how each webpage, that are all designed with different purposes, works with each other and how the data for each user (that registered) is stored seperately in the sql database along with their encrypted password.
+## Overview
+
+This dynamic stock trading platform (built with flask and sqlite) lets users register, log in, and simulate buying and selling stocks using real‑time market data from a public API. It tracks user portfolios, maintains a full transaction history, and includes an “add virtual cash” feature for experimentation. Even though this web app contains a css file to enhance its visual presentation, the main idea is to showcase the backend workings of how each webpage, that are all designed with different purposes, works with each other and how the data for each user (that registered) is stored seperately in the sql database along with their encrypted password.
 
 ---
 
 ## Table of Contents
 
 1. [Overview](#overview)  
-2. [Features](#features)  
-3. [Project Structure](#project-structure)  
-4. [Screenshots](#screenshots) 
-5. [Flow](#high-level-architecture-flow-of-requests) 
+2. [Features](#features) 
+3. [Screenshots](#screenshots)   
+4. [Project Structure](#project-structure) 
+5. [High Level Architecture (Flow of Requests)](#high-level-architecture-flow-of-requests) 
 6. [Security & Privacy](#security--privacy)
 7. [Database Schema](#database-schema)
 8. [Setup & Installation](#setup--installation)
@@ -18,12 +20,6 @@ This dynamic stock trading platform lets users register, log in, and simulate bu
 10. [Technologies Used](#technologies-used)  
 11. [Known Limitations](#known-limitations)    
 12. [Acknowledgments](#acknowledgments) 
-
----
-
-## Overview
-
-This web app is built with Flask and SQLite which simulates a full-featured stock trading platform. It’s been enhanced with custom CSS, smooth animations to make the experience of buying, selling, quoting, viewing, logging in and registring with a new account seamless.
 
 ---
 
@@ -48,6 +44,16 @@ This web app is built with Flask and SQLite which simulates a full-featured stoc
 
 ---
 
+
+
+## Screenshots
+
+Add screenshots or GIFs here if deploying publicly (e.g., login screen, dashboard, buy/sell modals)
+
+---
+
+
+
 ## Project Structure
 
 ```bash
@@ -68,10 +74,8 @@ finance/
 ├── flask_session/        # Server‑side session files
 └── __pycache__/          # Compiled bytecode (ignored)
 ```
+---
 
-## Screenshots
-
-Add screenshots or GIFs here if deploying publicly (e.g., login screen, dashboard, buy/sell modals)
 
 
 ## High-Level Architecture (Flow of Requests)
@@ -91,7 +95,7 @@ Requests in this application flow through the following steps:
 6. **Template Rendering:** Information is sent to Jinja2 templates placed in the templates/ directory, mixing the base structure (layout.html) with dynamic content.
 
 7. **Client Response:** The browser receives a responsive HTML file with static assets including CSS, Javascript, and favicon.
-
+---
 
 ## Security & Privacy
 
@@ -105,6 +109,7 @@ Requests in this application flow through the following steps:
 
 **API Key Handling:** No direct API keys are present as lookups are done externally through the CS50 Finance proxy endpoint which limits key exposure.
 
+---
 
 ## Database Schema
 
@@ -131,7 +136,7 @@ The app uses a SQLite database (finance.db) with the following tables:
 | purchase_time  | TEXT    | Timestamp of transaction               |
 
 > All transactions (buys/sells) are recorded in the tracking table with timestamp.
-
+---
 
 ## Setup & Installation
 
@@ -180,6 +185,7 @@ flask run
 
 Visit http://127.0.0.1:5000 in your browser.
 
+---
 
 ## Custom Styling
 
@@ -201,6 +207,7 @@ Animations powered by AOS (Animate On Scroll) using:
 <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 ```
+---
 
 ## Technologies Used
 
@@ -223,7 +230,7 @@ Animations powered by AOS (Animate On Scroll) using:
 - Werkzeug (security)
 
 - CS50 Finance API (lookup)
-
+---
 
 ## Known Limitations
 
@@ -234,7 +241,7 @@ Animations powered by AOS (Animate On Scroll) using:
 - No stock quantity validation beyond integer input (decimal shares not supported)
 
 - Session timeout and persistent logins are basic (flask-session only)
-
+---
 
 ## Acknowledgments
 - [Harvard CS50x](https://cs50.harvard.edu/x/)
@@ -244,4 +251,4 @@ Animations powered by AOS (Animate On Scroll) using:
 - [Memegen](https://memegen.link/) — for apology meme response
 
 - Custom CSS theme and interface enhancements by the creator of the program
-
+---
