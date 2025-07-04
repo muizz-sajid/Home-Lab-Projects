@@ -9,17 +9,16 @@ This dynamic stock trading platform (built with flask and sqlite) lets users reg
 ## Table of Contents
 
 1. [Overview](#overview)  
-2. [Features](#features) 
-3. [Screenshots](#screenshots)   
-4. [Project Structure](#project-structure) 
-5. [High Level Architecture (Flow of Requests)](#high-level-architecture-flow-of-requests) 
-6. [Security & Privacy](#security--privacy)
-7. [Database Schema](#database-schema)
-8. [Setup & Installation](#setup--installation)
-9. [Custom Styling](#custom-styling)  
-10. [Technologies Used](#technologies-used)  
-11. [Known Limitations](#known-limitations)    
-12. [Acknowledgments](#acknowledgments) 
+2. [Features](#features)   
+3. [Project Structure](#project-structure) 
+4. [High Level Architecture (Flow of Requests)](#high-level-architecture-flow-of-requests) 
+5. [Security & Privacy](#security--privacy)
+6. [Database Schema](#database-schema)
+7. [Setup & Installation](#setup--installation)
+8. [Custom Styling](#custom-styling)  
+9. [Technologies Used](#technologies-used)  
+10. [Known Limitations](#known-limitations)    
+11. [Acknowledgments](#acknowledgments) 
 
 ---
 
@@ -41,14 +40,6 @@ This dynamic stock trading platform (built with flask and sqlite) lets users reg
   Custom error messages rendered as meme‑style images.  
 - **Animated UI**  
   Integrated AOS (Animate On Scroll) for engaging interface effects.
-
----
-
-
-
-## Screenshots
-
-Add screenshots or GIFs here if deploying publicly (e.g., login screen, dashboard, buy/sell modals)
 
 ---
 
