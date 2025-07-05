@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block content %} 
+<div class="logo" data-aos="fade-up" data-aos-delay="400">
+    <h2>Available Devices</h2>
+</div>
+<ul class = "device-list" >
+    {% for name in devices %} 
+        <li 
+            data-aos="zoom-in" 
+            data-aos-delay="{{ 300 + loop.index0 * 100 }}"
+        >
+            <a href="{{ url_for('device_page', name=name) }}">
+                <lord-icon
+                    src="https://cdn.lordicon.com/itwlmliw.json"
+                    trigger="hover"
+                    colors="primary:#6366f1,secondary:#ec4899"
+                    style="display:inline-block; flex:none; width:250px; height:250px;"
+                >
+                </lord-icon>
+                <div class="device-name">{{ name }}</div>
+            </a>
+        </li>
+    {% else %}
+        <div class="logo" data-aos="fade-up" data-aos-delay="200">
+            <li>No Devices Found</li>
+        </div>
+    {% endfor %}
+</ul>
+{% endblock %}

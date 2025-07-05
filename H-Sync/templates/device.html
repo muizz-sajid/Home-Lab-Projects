@@ -1,0 +1,93 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<script>
+    const deviceName = {{ name | tojson }};
+</script>
+
+<div data-aos="fade-up" data-aos-delay="400">
+    <h2>Device: {{ name }}</h2>
+</div>
+
+<div class="controls" data-aos="zoom-in" data-aos-delay="400">
+    <h2>TV Controls</h2>
+    <button onclick='sendAction({{ name | tojson }}, "turn_on")'>Turn ON</button>
+    <button onclick='sendAction({{ name | tojson }}, "turn_off")'>Standby</button>
+    <h2>Either Click "Turn ON" OR Clap Twice</h2>
+    <h2>Clapping Twice Can Also Return To Standby</h2>
+
+    <h3>Media</h3>
+    <form onsubmit = 'playMedia(event, {{ name | tojson }})'>
+        <input type = "url" name = "url" placeholder = "Media URL" required>
+        <button type = "submit">Play Media</button>
+    </form>
+    <button onclick='playback({{ name | tojson }}, "play")'>
+        <lord-icon
+            src="https://cdn.lordicon.com/rfoqztsr.json"
+            trigger="hover"
+            colors="primary:#f9fafb"
+            style="width:25px;height:25px">
+        </lord-icon>
+    </button>
+    <button onclick='playback({{ name | tojson }}, "pause")'>
+        <lord-icon
+            src="https://cdn.lordicon.com/gzpbhanm.json"
+            trigger="hover"
+            colors="primary:#f9fafb"
+            style="width:25px;height:25px">
+        </lord-icon>
+    </button>
+
+    <h3>Play YouTube</h3> 
+    <button onclick='sendAction({{ name | tojson }}, "launch_youtube")'>
+        <lord-icon
+            src="https://cdn.lordicon.com/lyjuidpq.json"
+            trigger="hover"
+            stroke="bold"
+            colors="primary:#f9fafb,secondary:#f9fafb"
+            style="width:25px;height:25px">
+        </lord-icon>
+    </button>
+    <form onsubmit='playYouTubeSearch(event, {{ name|tojson }}); return false;'>
+        <input type="text" name="query" placeholder="Search or paste URL" required>
+        <button type="submit">
+            <lord-icon
+                src="https://cdn.lordicon.com/hoetzosy.json"
+                trigger="hover"
+                colors="primary:#f9fafb"
+                style="width:25px;height:25px">
+            </lord-icon>
+        </button>
+    </form>
+    <button onclick='playback({{ name | tojson }}, "play")'>
+        <lord-icon
+            src="https://cdn.lordicon.com/rfoqztsr.json"
+            trigger="hover"
+            colors="primary:#f9fafb"
+            style="width:25px;height:25px">
+        </lord-icon>
+    </button>
+    <button onclick='playback({{ name | tojson }}, "pause")'>
+        <lord-icon
+            src="https://cdn.lordicon.com/gzpbhanm.json"
+            trigger="hover"
+            colors="primary:#f9fafb"
+            style="width:25px;height:25px">
+        </lord-icon>
+    </button>
+    <button onclick='playback({{ name | tojson }}, "stop")'>Return</button>
+
+    <h3>Volume</h3>
+    <input type = "number" id = "vol-{{ name }}" placeholder = "0-1" step = "0.05" min="0" max="1">
+    <button onclick='setVolume({{ name | tojson }})'>Set Volume</button>
+    <button onclick='sendAction({{ name | tojson }}, "volume_up")'>Volume +</button>
+    <button onclick='sendAction({{ name | tojson }}, "volume_down")'>Volume -</button>
+    <button onclick='sendAction({{ name | tojson }}, "mute")'>Mute</button>
+    <button onclick='sendAction({{ name | tojson }}, "unmute")'>Unmute</button>
+
+    
+    <h3>Other Apps</h3>
+    <button onclick='sendAction({{ name | tojson }}, "launch_netflix")'>Netflix</button>
+    <button onclick='sendAction({{ name | tojson }}, "launch_spotify")'>Spotify</button>
+</div>
+{% endblock %}

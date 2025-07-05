@@ -1,0 +1,34 @@
+[
+  {
+    "name": "NPR News",
+    "url": "https://npr-ice.streamguys1.com/live.mp3"
+  },
+  {
+    "name": "Cinemix",
+    "url": "https://stream.cinemix.us:8000/cinemix.mp3"
+  },
+  {
+    "name": "KEXP Seattle",
+    "url": "https://kexp-mp3-128.streamguys1.com/kexp128.mp3"
+  },
+  {
+    "name": "Radio Paradise",
+    "url": "https://stream.radioparadise.com/mp3-192"
+  },
+  {
+    "name": "WFMU Freeform",
+    "url": "https://stream0.wfmu.org/freeform-128k"
+  },
+  {
+    "name": "Drone Zone (SomaFM)",
+    "url": "https://ice1.somafm.com/dronezone-128-mp3"
+  },
+  {
+    "name": "Instrumental Hits",
+    "url": "https://streaming.radionomy.com/JamendoLounge"
+  },
+  {
+    "name": "Groove Salad (SomaFM)",
+    "url": "https://ice1.somafm.com/groovesalad-128-mp3"
+  }
+]

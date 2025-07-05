@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+  <link rel="icon" href="/static/wifi-tab-icon.svg">
+  <link
+    href="https://unpkg.com/aos@2.3.1/dist/aos.css" 
+    rel="stylesheet"
+  />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.2/lottie.min.js"></script>
+  <script src="https://cdn.lordicon.com/lordicon.js"></script>
+</head>
+<body>
+  <canvas id="particle-canvas"></canvas>
+
+  <div class="app-container">
+    <aside class="sidebar">
+      <div class="logo" data-aos="fade-up" data-aos-delay="200">Smart Home</div>
+      <nav>
+        <div class="logo" style="padding: 0.25rem 4rem;" data-aos="fade-up" data-aos-delay="400">
+            <a href="{{ url_for('index') }}">
+              <lord-icon
+                src="https://cdn.lordicon.com/szzviyeh.json"
+                trigger="hover"
+                colors="primary:#9ca3af"
+                style="width:50px;height:50px">
+              </lord-icon>
+            </a>
+        </div>
+        <div id="wifi-icon"></div>
+      </nav>
+    </aside>
+
+    <div class="main">
+      <header class="main-header">
+        <h1 data-aos="fade-up" data-aos-delay="200">Smart Home Control</h1>
+      </header>
+
+      <main class="main-content">
+        {% block content %}{% endblock %}
+      </main>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='scripts.js') }}" defer></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      AOS.init({
+        duration: 500,
+        easing: 'ease-out-cubic',
+        once: true
+      });
+    });
+  </script>
+</body>
+</html>

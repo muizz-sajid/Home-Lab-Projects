@@ -1,0 +1,52 @@
+project/
+|--__pycache__
+|--app.py
+|--README.md
+|--program_architecture.txt
+|--requirements.txt
+
+
+|--core/
+    |--__pycache__
+    |--__init__.py
+    |--device_manager.py
+    L--protocols.py
+
+|-- plugins/
+    L--chromecast/
+        |--__pycache__
+        |--__init__.py
+        L--chromecast_driver.py
+
+|-- audio/
+    |--__pycache__
+    |--__init__.py
+    L--clap_listener.py
+
+|--templates/
+    |--layout.html
+    |--index.html
+    |--speakers.html
+    L--device.html
+
+L--static/
+    |--animations/
+        |--server.json
+        |--wifi.json
+    |--radio_stations.json
+    |--scripts.js
+    |--styles.css
+    L--wifi-tab-icon.svg
+
+L--assets/
+    |--dashboard_1.gif
+    |--dashboard_2.gif
+    |--tv.gif
+    |--clap_detection.gif
+    |--speakers.gif
+    |--internet_radio.gif
+
+
+tests
+    L-- test.py (to check if no external factors are disturbing the connection between the googlecast and the user's system)
+    

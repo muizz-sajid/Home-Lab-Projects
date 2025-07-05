@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <h3 data-aos="fade-down">My History</h3>
+    <table class="table_alignment" data-aos="fade-up" data-aos-delay="200">
+        <thead>
+            <tr>
+                <th>Type</th>
+                <th>Symbol</th>
+                <th>Shares</th>
+                <th>Price (of Stocks)</th>
+                <th>Date & Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for trans in transactions %}
+                <tr>
+                    <td>{{ trans.Type }}</td>
+                    <td>{{ trans.Symbol }}</td>
+                    <td>{{ trans.Shares }}</td>
+                    <td>{{ trans.Price }}</td>
+                    <td>{{ trans.Timestamp }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

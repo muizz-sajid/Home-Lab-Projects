@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sell
+{% endblock %}
+
+{% block main %}
+    <form action="/sell" method="post">
+        <h3 data-aos="fade-left">Want to Sell?</h3>
+        <div class="mb-3">
+            <select class="form-select mx-auto w-auto" name='symbol' id='symbol'>
+                <option value= ""> Select a Stock </option>
+                {% for sym in symbols %}
+                    <option value= '{{ sym }}'>{{ sym }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" name="shares" id="shares" type="text" placeholder="Shares">
+        </div>
+        <div class="mb-3">
+            <button data-aos="fade-up" data-aos-delay="300" class="btn btn-primary" type='submit'>Sell</button>
+        </div>
+
+    </form>
+{% endblock %}

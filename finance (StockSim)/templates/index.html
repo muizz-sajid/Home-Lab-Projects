@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <h3 data-aos="fade-down">My Portfolio</h3>
+    <table class="table_alignment" data-aos="fade-up" data-aos-delay="200">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Shares</th>
+                <th>Price (of Stocks)</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for stock in stock_info %}
+                <tr>
+                    <td>{{ stock.name }}</td>
+                    <td>{{ stock.shares }}</td>
+                    <td>{{ stock.price }}</td>
+                    <td>{{ stock.total }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+        <div data-aos="fade-up" data-aos-delay="300">Cash: {{ cash }}</div>
+        <div data-aos="fade-up" data-aos-delay="300">Grand Total: {{ grand_total }}</div>
+    </table>
+{% endblock %}

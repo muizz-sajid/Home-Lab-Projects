@@ -1,0 +1,6 @@
+Flask
+pychromecast
+yt-dlp
+sounddevice
+numpy
+zeroconf
