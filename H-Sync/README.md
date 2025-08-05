@@ -320,7 +320,7 @@ Extend the number/types of devices by dropping new plugins into the `plugins/` f
      ```python
      from core.protocols import Device
 
-     class MyAwesomePlugin(Device):
+     class my_plugin(Device):
          def __init__(self, config):
              super().__init__(config)
              # your init logic
